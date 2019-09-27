@@ -9,9 +9,9 @@ import { secret } from '../configs/var';
 class Authorization {
 
     public async login(req: express.Request, res: express.Response, next: express.NextFunction){
-        const allUsers = await userRepository.getUsers(null,0,10);
+        const allUsers = await userRepository.getUsers();
         let response = {};
-        await allUsers.items.forEach( async (user) => {
+        await allUsers.forEach( async (user) => {
             if(req.body.email === user.email && req.body.password === user.password){
                 const token = jwt.sign({ email: user.email }, secret);
                 response = {user:user.email,token: token}
@@ -31,9 +31,9 @@ class Authorization {
             req['token'] = token;
             const decoded = jwt.verify(token, secret);
 
-            const allUsers = await userRepository.getUsers(null,0,10);
+            const allUsers = await userRepository.getUsers();
 
-            const foundUser = await allUsers.items.find( async (user) => {
+            const foundUser = await allUsers.find( async (user) => {
                 return decoded['email'] === user.email;
             })
             

@@ -1,7 +1,7 @@
 import express = require('express');
 import * as bodyParser from 'body-parser';
 import * as cors from 'cors';
-import { usersController } from '../controllers/usersController';
+import { usersController, UsersController } from '../controllers/usersController';
 import { authorization }from '../middlewares/authorization';
 import * as http from 'http';
 import * as socketIO from 'socket.io'
@@ -69,6 +69,10 @@ import { userSockets } from '../core/sockets'
         io.on('token', data => {
 
         })
+    });
+
+    app.post('/signup', function(req: express.Request, res: express.Response, next: express.NextFunction) {
+        usersController.createUser(req,res,next);
     });
 
     app.post('/login', authorization.login, function(req: express.Request, res: express.Response, next: express.NextFunction) {
