@@ -1,0 +1,36 @@
+{
+  "name": "secretCorpchat",
+  "version": "0.0.1",
+  "description": "secretCorp corporate chat",
+  "main": "start.js",
+  "scripts": {
+    "rebuild": "tsc",
+    "start": "tsc && node ts-built/core/app.js",
+    "test": "test"
+  },
+  "keywords": [
+    "secretCorp",
+    "chat",
+    "secretCorpchat"
+  ],
+  "author": "Philippe Dagenais",
+  "license": "Philippe Dagenais, all rights reserved",
+  "dependencies": {
+    "@types/body-parser": "^1.17.1",
+    "@types/cors": "^2.8.6",
+    "@types/express": "^4.17.1",
+    "@types/jsonwebtoken": "^8.3.4",
+    "@types/lodash": "^4.14.138",
+    "@types/node": "^12.7.5",
+    "@types/socket.io": "^2.1.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "http-status-codes": "^1.3.2",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.15",
+    "npm": "^6.11.3",
+    "socket.io": "^2.3.0",
+    "typescript": "^3.6.3"
+  }
+}

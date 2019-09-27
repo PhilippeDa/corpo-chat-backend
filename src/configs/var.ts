@@ -1,0 +1,1 @@
+export let secret: string = 'L33TH4X0R';
